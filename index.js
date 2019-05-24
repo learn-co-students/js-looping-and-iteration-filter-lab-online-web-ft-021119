@@ -3,11 +3,16 @@
 const drivers = ['Bobby', 'Sammy', 'Sally', 'Annette', 'Sarah', 'bobby']
 
 function findMatching(drivers,string) {
-  const collection = []
-  for (const driver of drivers) {
-    if (driver.toLowerCase() === string.toLowerCase()) {
-      collection.push(console.log(driver));
-    }
-  }
-  return collection
+  let result = drivers.filter(function (driver) {return driver.toUpperCase() == string.toUpperCase() })
+  return result
+}
+
+function fuzzyMatch(drivers, string) {
+  let result = drivers.filter(function (driver) {return driver.startsWith(string) })
+  return result
+}
+
+function matchName(drivers, string) {
+  let result = drivers.filter(function (driver) {return driver.name === string })
+  return result
 }
